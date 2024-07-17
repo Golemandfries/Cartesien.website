@@ -1,31 +1,197 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Cartesien's Library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="Cartesien.jpeg">
-    <link rel="stylesheet" href="Cartesien Library Navbar.css">
+    <title>Reports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Quicksand&amp;display=swap'><link rel="stylesheet" href="Cartesien Website's Navbar.css">
+<style>
+    .container {
+    height: 100vh;
+  }
+  
+  form {
+    min-width: 25rem;
+  }
+  form .title {
+    font-family: "Pacifico", cursive;
+    color: white;
+    font-size: 2.5rem;
+  }
+  form .form-control {
+    background-color: #f2f6f8;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+  }
+  form .form-control.thick {
+    height: 3.3rem;
+    padding: 0.5rem 3.5rem;
+  }
+  form .form-control:focus {
+    background-color: #f2f6f8;
+    border: none;
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
+  }
+  form .message .form-control {
+    padding: 0.5rem 1.8rem;
+  }
+  form ::placeholder {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #838788;
+    position: relative;
+    left: 0;
+  }
+  form input,
+  form textarea {
+    font-family: "Quicksand", sans-serif;
+    color: #212529;
+    font-size: 1.1rem;
+  }
+  form .icon {
+    color: #57565c;
+    height: 1.3rem;
+    position: absolute;
+    left: 1.5rem;
+    top: 1.1rem;
+  }
+  
+  .btn.btn-primary {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 3rem;
+    border: 0;
+    border-radius: 3rem;
+    background-size: 300% 100%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn.btn-primary:hover:enabled {
+    box-shadow: 0 0.5em 0.5em -0.4em #ff923cba;
+    background-size: 100% 100%;
+    transform: translateY(-0.15em);
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+ text-decoration: underline;
+ color: black;
+}
+a:hover {
+ text-decoration: underline;
+ color: rgb(173, 173, 173);
+}
+.navbar {
+ background-color: none;
+ color: white;
+ padding: 15px;
+ display: flex;
+ justify-content: space-between;
+}
+.navbar a {
+ color: white;
+ padding: 14px;
+ text-decoration: none;
+ text-align: center;
+ float: left;
+}
+.navbar a:hover {
+ text-decoration: underline;
+ color: rgb(173, 173, 173);
+}
+.navbar-left {
+ display: flex;
+ align-items: center;
+}
+.navbar-left img {
+ height: 50px;
+ margin-right: 10px;
+}
+.dropdown {
+ float: left;
+ overflow: hidden;
+ padding: 14px;
+}
+.dropdown-content {
+ display: none;
+ position: absolute;
+ background-color: #f9f9f9;
+}
+.dropdown-content a {
+ float: none;
+ color: black;
+ padding: 14px;
+ text-decoration: none;
+ display: block;
+ text-align: left;
+}
+.dropdown:hover .dropdown-content {
+ display: block;
+}
+</style>
 </head>
 <body>
+    <!---van's part-->
     <div class="navbar">
         <div class="navbar-left">
             <img src="Cartesien.jpeg" alt="Logo">
             <p style="font-size: 30px;">EIB LE CARTESIEN</p>
         </div>
         <div class="navbar-right">
-            <a href="Cartesien Library.html" style="font-size: 24px;">Home</a>
-            <a href="Books.html" style="font-size: 24px;">Books</a>
-            <div class="dropdown" style="font-size: 24px;">Programmes
-                <i class="fa fa-caret-down"></i>
-              <div class="dropdown-content">
-                <a href="PYP.html" style="font-size: 16px;">Primary Years Program</a>
-                <a href="MYP.html" style="font-size: 16px;">Middle Years Program</a>
-                <a href="DP.html" style="font-size: 16px;">Diploma Program</a>
-                <a href="CP.html" style="font-size: 16px;">Career-related program</a>
-              </div>
+          <a href="index.html" style="font-size: 24px;">Home</a>
+          <a href="News.html" style="font-size: 24px;">News</a>
+          <a href="Books.html" style="font-size: 24px;">Books</a>
+          <div class="dropdown" style="font-size: 24px;">Programmes
+            <div class="dropdown-content">
+              <a href="PYP.html" style="font-size: 16px;">Primary Years Program</a>
+              <a href="MYP.html" style="font-size: 16px;">Middle Years Program</a>
+              <a href="DP.html" style="font-size: 16px;">Diploma Program</a>
+              <a href="CP.html" style="font-size: 16px;">Career-related program</a>
             </div>
-            <a href="Suggestions.html" style="font-size: 24px;">Suggestions</a>
-        </div>
-    </div><br><br><br><br><br>
-<center><p style="font-size: 56px; color: white;">Cartesien's Electronic Library</p>
-<p style="font-size: 24px; color: white;">A library made for the school and by the school!</p></center>
+          </div>
+          <a href="Archives.html" style="font-size: 24px;">Archives</a>
+          <a href="Posts.html" style="font-size: 24px;">Posts</a>
+          <a href="Reports.html" style="font-size: 24px;">Reports</a>
+  </div>
+    </div>
+    <!---van's end-->
+    <div class="container d-flex justify-content-center align-items-center">
+        <form action="https://formsubmit.co/BANZAVANNOTEN@gmail.com" method="POST">
+            <h1 class="title text-center mb-4">Talk to Us</h1>
+                <div class="form-group position-relative">
+                    <label for="formName" class="d-block">
+                        <i class="icon" data-feather="user"></i>
+                    </label>
+                    <input type="text" id="formName" class="form-control form-control-lg thick" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-group position-relative">
+                    <label for="formEmail" class="d-block">
+                        <i class="icon" data-feather="mail"></i>
+                    </label>
+                    <input type="email" id="formEmail" class="form-control form-control-lg thick" name="email" placeholder="E-mail" required>
+                </div>
+                <div class="form-group message">
+                    <textarea id="formMessage" class="form-control form-control-lg" rows="7" name="message" placeholder="Message"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" tabIndex="-1">Send message</button>
+                </div>
+        </form>    
+    </div>
+      <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+    <script src='https://unpkg.com/feather-icons'></script><script  src="./script.js"></script>   
 </body>
 </html>
