@@ -27,72 +27,6 @@ li{
   margin: 150px auto;
 }
 
-.container .searchInput{
-  background: #fff;
-  width: 100%;
-  border-radius: 5px;
-  position: relative;
-  box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
-}
-
-.searchInput input{
-  height: 55px;
-  width: 100%;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  padding: 0 60px 0 20px;
-  font-size: 18px;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-}
-
-.searchInput.active input{
-  border-radius: 5px 5px 0 0;
-}
-
-.searchInput .resultBox{
-  padding: 0;
-  opacity: 0;
-  pointer-events: none;
-  max-height: 280px;
-  overflow-y: auto;
-}
-
-.searchInput.active .resultBox{
-  padding: 10px 8px;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.resultBox li{
-  list-style: none;
-  padding: 8px 12px;
-  display: none;
-  width: 100%;
-  cursor: default;
-  border-radius: 3px;
-}
-
-.searchInput.active .resultBox li{
-  display: block;
-}
-.resultBox li:hover{
-  background: #efefef;
-}
-
-.searchInput .icon{
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  height: 55px;
-  width: 55px;
-  text-align: center;
-  line-height: 55px;
-  font-size: 20px;
-  color: #644bff;
-  cursor: pointer;
-}
-
 .wrapper {
   max-width: 450px;
   margin: 50px auto;
@@ -123,8 +57,8 @@ li{
 
 .search-input .autocom-box {
   padding: 0;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events:visible;
   max-height: 280px;
   overflow-y: auto;
 }
@@ -134,6 +68,38 @@ li{
   opacity: 1;
   pointer-events: auto;
 }
+
+.autocom-box {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .autocom-box a {
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .autocom-box a:last-child {
+            border-bottom: none;
+        }
+
+        .autocom-box a:hover {
+            background-color: #f1f1f1;
+            color: #000;
+        }
+
+        .autocom-box.show {
+            display: block;
+        }
 
 .autocom-box li {
   list-style: none;
@@ -662,45 +628,170 @@ h2 { margin-top: 0; }
           <div class="wrapper">
             <div class="search-input">
                 <a href="" target="blank" hidden></a>
-                   <input type="text" placeholder="Type to search...">
-                   <div class="autocom-box">
-                   </div>
+                   <input type="text" id="search-bar" placeholder="Type to search...">
+                   <div id="autocom" class="autocom-box"></div>
                    <div class="icon"><i class="fas fa-search"></i></div>
             </div>
         </div>
+        <script>
+          let suggestions = [
+              { name: "Grade 1 English", link: "Grade 1 English.html" },
+              { name: "Grade 1 Geography", link: "Grade 1 Geography.html" },
+              { name: "Grade 1 History", link: "Grade 1 History.html" },
+              { name: "Grade 1 ICT", link: "Grade 1 ICT.html" },
+              { name: "Grade 1 Mathematics", link: "Grade 1 English.html" },
+              { name: "Grade 1 POI", link: "Grade 1 POI.html" },
+              { name: "Grade 1 PSPE", link: "Grade 1 PSPE.html" },
+              { name: "Grade 1 Sciences", link: "Grade 1 Sciences.html" },
+              { name: "Grade 1 Social Studies", link: "Grade 1 Social Studies.html" },
+              { name: "Grade 1 Visual Arts", link: "Grade 1 Viisual Arts.html" },
+
+              { name: "Grade 2 English ", link: "Grade 2 English.html" },
+              { name: "Grade 2 Geography", link: "Grade 2 Geography.html" },
+              { name: "Grade 2 History", link: "Grade 2 History.html" },
+              { name: "Grade 2 ICT", link: "Grade 2 ICT.html"},
+              { name: "Grade 2 Mathematics", link: "Grade 2 Mathematics.html"},
+              { name: "Grade 2 POI", link: "Grade 2 POI.html"},
+              { name: "Grade 2 PSPE", link: "Grade 2 PSPE.html"},
+              { name: "Grade 2 Sciences", link: "Grade 2 Sciences.html"},
+              { name: "Grade 2 Social Studies", link: "Grade 2 Social Studies.html"},
+              { name: "Grade 2 Visual Arts", link: "Grade 2 Visual Arts.html"},
+
+              { name: "Grade 3 English ", link: "Grade 3 English.html" },
+              { name: "Grade 3 Geography", link: "Grade 3 Geography.html" },
+              { name: "Grade 3 History", link: "Grade 3 History.html" },
+              { name: "Grade 3 ICT", link: "Grade 3 ICT.html"},
+              { name: "Grade 3 Mathematics", link: "Grade 3 Mathematics.html"},
+              { name: "Grade 3 POI", link: "Grade 3 POI.html"},
+              { name: "Grade 3 PSPE", link: "Grade 3 PSPE.html"},
+              { name: "Grade 3 Sciences", link: "Grade 3 Sciences.html"},
+              { name: "Grade 3 Social Studies", link: "Grade 3 Social Studies.html"},
+              { name: "Grade 3 Visual Arts", link: "Grade 3 Visual Arts.html"},
+
+              { name: "Grade 4 English ", link: "Grade 4 English.html" },
+              { name: "Grade 4 Geography", link: "Grade 4 Geography.html" },
+              { name: "Grade 4 History", link: "Grade 4 History.html" },
+              { name: "Grade 4 ICT", link: "Grade 4 ICT.html"},
+              { name: "Grade 4 Mathematics", link: "Grade 4 Mathematics.html"},
+              { name: "Grade 4 POI", link: "Grade 4 POI.html"},
+              { name: "Grade 4 PSPE", link: "Grade 4 PSPE.html"},
+              { name: "Grade 4 Sciences", link: "Grade 4 Sciences.html"},
+              { name: "Grade 4 Social Studies", link: "Grade 4 Social Studies.html"},
+              { name: "Grade 4 Visual Arts", link: "Grade 4 Visual Arts.html"},
+
+              { name: "Grade 5 English ", link: "Grade 5 English.html" },
+              { name: "Grade 5 Geography", link: "Grade 5 Geography.html" },
+              { name: "Grade 5 History", link: "Grade 5 History.html" },
+              { name: "Grade 5 ICT", link: "Grade 5 ICT.html"},
+              { name: "Grade 5 Mathematics", link: "Grade 5 Mathematics.html"},
+              { name: "Grade 5 POI", link: "Grade 5 POI.html"},
+              { name: "Grade 5 PSPE", link: "Grade 5 PSPE.html"},
+              { name: "Grade 5 Sciences", link: "Grade 5 Sciences.html"},
+              { name: "Grade 5 Social Studies", link: "Grade 5 Social Studies.html"},
+              { name: "Grade 5 Visual Arts", link: "Grade 5 Visual Arts.html"},
+
+              { name: "Grade 6 English ", link: "Grade 6 English.html" },
+              { name: "Grade 6 Geography", link: "Grade 6 Geography.html" },
+              { name: "Grade 6 History", link: "Grade 6 History.html" },
+              { name: "Grade 6 ICT", link: "Grade 6 ICT.html"},
+              { name: "Grade 6 Mathematics", link: "Grade 6 Mathematics.html"},
+              { name: "Grade 6 POI", link: "Grade 6 POI.html"},
+              { name: "Grade 6 PSPE", link: "Grade 6 PSPE.html"},
+              { name: "Grade 6 Sciences", link: "Grade 6 Sciences.html"},
+              { name: "Grade 6 Social Studies", link: "Grade 6 Social Studies.html"},
+              { name: "Grade 6 Visual Arts", link: "Grade 6 Visual Arts.html"},
+
+              { name: "Grade 7 English", link: "Grade 7 English.html"},
+              { name: "Grade 7 French", link: "Grade 7 French.html"},
+              { name: "Grade 7 ICT", link: "Grade 7 ICT.html"},
+              { name: "Grade 7 Life Sciences", link: "Grade 7 Life Sciences.html"},
+              { name: "Grade 7 Mathematics", link: "Grade 7 Mathematics.html"},
+              { name: "Grade 7 Physical and Earth Sciences", link: "Grade 7 Physical and Earth Sciences.html"},
+              { name: "Grade 7 Social Studies", link: "Grade 7 Social Studies.html"},
+              { name: "Grade 7 Spanish", link: "Grade 7 Spanish.html"},
+
+              { name: "Grade 8 English", link: "Grade 8 English.html"},
+              { name: "Grade 8 French", link: "Grade 8 French.html"},
+              { name: "Grade 8 ICT", link: "Grade 8 ICT.html"},
+              { name: "Grade 8 Life Sciences", link: "Grade 8 Life Sciences.html"},
+              { name: "Grade 8 Mathematics", link: "Grade 8 Mathematics.html"},
+              { name: "Grade 8 Physical and Earth Sciences", link: "Grade 8 Physical and Earth Sciences.html"},
+              { name: "Grade 8 Social Studies", link: "Grade 8 Social Studies.html"},
+              { name: "Grade 8 Spanish", link: "Grade 8 Spanish.html"},
+
+              { name: "Grade 9 CAS", link: "Grade 9 CAS.html"},
+              { name: "Grade 9 English", link: "Grade 9 English.html"},
+              { name: "Grade 9 Extended Essay", link: "Grade 9 Extended Essay.html"},
+              { name: "Grade 9 French", link: "Grade 9 French.html"},
+              { name: "Grade 9 Geography", link: "Grade 9 Geography.html"},
+              { name: "Grade 9 ICT", link: "Grade 9 ICT.html"},
+              { name: "Grade 9 Life Sciences", link: "Grade 9 Life Sciences.html"},
+              { name: "Grade 9 Mathematics", link: "Grade 9 Mathematics.html"},
+              { name: "Grade 9 Physical and Earth Sciences", link: "Grade 9 Physical and Earth Sciences.html"},
+              { name: "Grade 9 Social Studies", link: "Grade 9 Social Studies.html"},
+              { name: "Grade 9 Spanish", link: "Grade 9 Spanish.html"},
+              { name: "Grade 9 TOK", link: "Grade 9 TOK.html"},
+
+              { name: "Grade 10 Biology", link: "Grade 10 Biology.html"},
+              { name: "Grade 10 Business", link: "Grade 10 Business.html"},
+              { name: "Grade 10 CAS", link: "Grade 10 CAS.html"},
+              { name: "Grade 10 Chemistry", link: "Grade 10 Chemistry.html"},
+              { name: "Grade 10 Economics", link: "Grade 10 Economics.html"},
+              { name: "Grade 10 English", link: "Grade 10 English.html"},
+              { name: "Grade 10 Extended Essay", link: "Grade 10 Extended Essay.html"},
+              { name: "Grade 10 French", link: "Grade 10 French.html"},
+              { name: "Grade 10 Global Politics", link: "Grade 10 Global Politics.html"},
+              { name: "Grade 10 History", link: "Grade 10 History.html"},
+              { name: "Grade 10 Mathematics", link: "Grade 10 Mathematics.html"},
+              { name: "Grade 10 Physics", link: "Grade 10 Physics.html"},
+              { name: "Grade 10 Spanish", link: "Grade 10 Spanish.html"},
+              { name: "Grade 10 TOK", link: "Grade 10 TOK.html"},
+
+              { name: "Grade 11 Biology", link: "Grade 11 Biology.html"},
+              { name: "Grade 11 Business", link: "Grade 11 Business.html"},
+              { name: "Grade 11 CAS", link: "Grade 11 CAS.html"},
+              { name: "Grade 11 Chemistry", link: "Grade 11 Chemistry.html"},
+              { name: "Grade 11 Economics", link: "Grade 11 Economics.html"},
+              { name: "Grade 11 English", link: "Grade 11 English.html"},
+              { name: "Grade 11 Extended Essay", link: "Grade 11 Extended Essay.html"},
+              { name: "Grade 11 French", link: "Grade 11 French.html"},
+              { name: "Grade 11 Global Politics", link: "Grade 11 Global Politics.html"},
+              { name: "Grade 11 History", link: "Grade 11 History.html"},
+              { name: "Grade 11 Mathematics", link: "Grade 11 Mathematics.html"},
+              { name: "Grade 11 Physics", link: "Grade 11 Physics.html"},
+              { name: "Grade 11 Spanish", link: "Grade 11 Spanish.html"},
+              { name: "Grade 11 TOK", link: "Grade 11 TOK.html"},
+          ];
+  
+          document.getElementById('search-bar').addEventListener('input', function() {
+              let input = this.value;
+              let dropdown = document.getElementById('autocom');
+              dropdown.innerHTML = '';
+              if (input) {
+                  let filteredSuggestions = suggestions.filter(suggestion => 
+                      suggestion.name.toLowerCase().includes(input.toLowerCase())
+                  );
+                  filteredSuggestions.forEach(suggestion => {
+                      let link = document.createElement('a');
+                      link.href = suggestion.link;
+                      link.textContent = suggestion.name;
+                      dropdown.appendChild(link);
+                  });
+                  dropdown.classList.add('show');
+              } else {
+                  dropdown.classList.remove('show');
+              }
+          });
+  
+          document.addEventListener('click', function(event) {
+              let dropdown = document.getElementById('autocom');
+              if (!event.target.matches('#search-bar')) {
+                  dropdown.classList.remove('show');
+              }
+          });
+      </script>
           <div id="grade1" class="tm-page-content">
                 <center><h1 class="tm-site-name" style="color: white;">Books</h1></center> 
-               <div id="cold" class="tm-tab-content">
-              <div class="tm-list">
-                <div class="tm-list-item">          
-         
-                  <div class="tm-black-bg tm-list-item-text">
-                    <a href="livrelink"><h3 class="tm-list-item-name">Maths</a><span class="tm-list-item-price">PYP</span></h3>
-                    <p class="tm-list-item-description">hh</p>
-                  </div>
-                </div>
-                <div class="tm-list-item">          
-                  
-                  <div class="tm-black-bg tm-list-item-text">
-                    <a href="livrelink"><h3 class="tm-list-item-name">French</a><span class="tm-list-item-price">PYP</span></h3>
-                    <p class="tm-list-item-description">hh</p>
-                  </div>
-                </div>
-                <div class="tm-list-item">          
-                 
-                  <div class="tm-black-bg tm-list-item-text">
-                    <a href="livrelink"><h3 class="tm-list-item-name">English</a><span class="tm-list-item-price">PYP</span></h3>
-                    <p class="tm-list-item-description">hh</p>
-                  </div>
-                </div>
-                <div class="tm-list-item">          
-                  
-                  <div class="tm-black-bg tm-list-item-text">
-                    <a href="livrelink"><h3 class="tm-list-item-name">Physics</a><span class="tm-list-item-price">PYP</span></h3>
-                    <p class="tm-list-item-description">hh</p>
-                  </div>
-                </div>                      
-              </div>
             </div>
           </div>
         </main>
