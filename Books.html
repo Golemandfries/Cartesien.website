@@ -1,63 +1,802 @@
 <html>
 <head>
-    <title>Cartesien's Library</title>
+    <title>Cartesien's Website</title>
     <link rel="icon" href="Cartesien.jpeg">
-    <link rel="stylesheet" href="Cartesien Library Navbar.css">
-    <style>
-      li{
-        list-style: none;
-      }
-      .nav-links a {
-        color: #fff;
-      }
-      .logo{
-        font-size: 32px;
-      }
-      .menu {
-        display: flex;
-        gap: 1em;
-        font-size: 18px;
-      }
+    <link rel="stylesheet" href="Cartesien Website's Navbar.css">
+<style>
+li{
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none
+}
+
+.logo{
+  font-size: 32px;
+}
+
+::selection{
+  color: #fff;
+  background: #664AFF;
+}
+
+.container{
+  max-width: 450px;
+  margin: 150px auto;
+}
+
+.wrapper {
+  max-width: 450px;
+  margin: 50px auto;
+}
+
+.wrapper .search-input {
+  background: #fff;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+}
+
+.search-input input {
+  height: 55px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input.active input {
+  border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box {
+  padding: 0;
+  opacity: 1;
+  pointer-events:visible;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-input.active .autocom-box {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.autocom-box {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .autocom-box a {
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+
+        .autocom-box a:last-child {
+            border-bottom: none;
+        }
+
+        .autocom-box a:hover {
+            background-color: #f1f1f1;
+            color: #000;
+        }
+
+        .autocom-box.show {
+            display: block;
+        }
+
+.autocom-box li {
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+}
+
+.search-input.active .autocom-box li {
+  display: block;
+}
+.autocom-box li:hover {
+  background: #efefef;
+}
+
+.search-input .icon {
+  position: absolute;
+  right: 0px;
+  top: 17px;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 20px;
+  color: #644bff;
+  cursor: pointer;
+}
+
+a{
+ text-decoration: none;
+ color: black;
+}
+a:hover {
+ text-decoration: none;
+ color: rgb(173, 173, 173);
+}
+.navbar {
+ background-color: none;
+ color: white;
+ padding: 15px;
+ display: flex;
+ justify-content: space-between;
+}
+.navbar a {
+ color: white;
+ padding: 14px;
+ text-decoration: none;
+ text-align: center;
+ float: left;
+}
+.navbar a:hover {
+ text-decoration: none;
+ color: rgb(173, 173, 173);
+}
+.navbar-left {
+ display: flex;
+ align-items: center;
+}
+.navbar-left img {
+ height: 50px;
+ margin-right: 10px;
+}
+.dropdown {
+ float: left;
+ overflow: hidden;
+ padding: 14px;
+}
+.dropdown-content {
+ display: none;
+ position: absolute;
+ background-color: #f9f9f9;
+}
+.dropdown-content a {
+ float: none;
+ color: black;
+ padding: 14px;
+ text-decoration: none;
+ display: block;
+ text-align: left;
+}
+.dropdown:hover .dropdown-content {
+ display: block;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav > ul > li { list-style: none; }
+
+a { 
+	color: #3CF;
+    text-decoration: none;
+    transition: all 0.3s ease; 
+}
+
+p { 
+    line-height: 1.8; 
+    margin-top: 0;
+}
+
+h2 { margin-top: 0; }
+
+.tm-container { padding: 30px; }
+
+.tm-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tm-left{
+  margin-top: -10px;
+}
+.tm-right {
+    width: 50%;
+    margin-top: 60px;
+}
+
+.tm-left-inner { position: fixed; }
+
+.tm-site-header {
+    background-color: white;
+    color: rgb(20, 89, 193);
+    width: 100%;
+    height: 100px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; 
+}
+
+.tm-site-logo { margin-right: 30px; }
+
+.tm-site-name {
+    font-size: 2.2rem;
+    font-style: italic; 
+}
+
+.tm-left-inner {
+    max-width: 500px;
+    width: 100%;
+}
+
+.tm-site-nav-ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tm-page-nav-item { margin-top: 10px; }
+
+.tm-page-nav-item:hover { 
+  color: gray;
+  background-color: darkblue;
+  transition: 0.3s ease;
+  border-radius: 10px;
+}
+
+.tm-page-link {
+    min-width: 190px;
+    height: 50px;
+    background-color: white;
+    color: rgb(31, 120, 222);
+    display: flex;
+    text-decoration: none;
+    align-items: center;      
+    font-size: 1.2rem;
+}
+
+.tm-page-link.active:hover{
+  background-color: darkblue;
+  text-decoration: none;
+}
+
+.tm-page-link.active {
+    background-color: rgb(18, 82, 232);
+    color: white;
+    border-radius: 10px;
+}
+
+.tm-page-link-icon {
+    margin-right: 25px;
+    margin-left: 25px;
+    font-size: 1.5rem;
+}
+
+.tm-black-bg {
+    background-color: rgba(10, 10, 10, 0.6);
+    color: white;
+    border-radius: 10px;
+}
+
+.tm-drinks-nav > ul > li { display: inline-block; }
+
+.tm-drinks-nav > ul > li > a {
+    color: white;
+    font-size: 1.2rem;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+}
+
+.tm-drinks-nav { height: 80px; }
+.tm-main { max-width: 660px; }
+
+.tm-drinks-nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.tm-drinks-nav > ul > li a.active,
+.tm-drinks-nav > ul > li a:hover {
+    color: #0e0a42;
+    border-bottom: 4px solid #96FEFF;
+}
+
+.tm-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.tm-list-item-2 { align-items: flex-start; }
+
+.tm-list-item-img {
+    margin-right: 20px;
+    width: 160px;
+    height: 160px;
+    background-color: rgb(76, 54, 244);
+}
+
+.tm-list-item-img-big {
+    margin-right: 25px;
+    width: 200px;
+    height: 200px;
+}
+
+.tm-list-item-text {
+    padding: 20px 25px;
+    flex: 1;
+}
+
+.tm-list-item-text-2 { flex: 1; }
+
+.tm-list-item-name {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.tm-list-item-price { color: #253d80; }
+.tm-site-footer { margin-top: 15px; }
+
+.tm-footer-text {
+    padding: 10px 65px 10px 20px;
+    display: inline-block;
+}
+
+.tm-footer-link { color: white; }
+.tm-tab-content { animation: fadeEffect 1s; }
+.tm-page-content { animation: fadeEffect 1s; }
+
+.tm-text-primary { color: rgb(23, 68, 215); }
+.tm-mb-20 { margin-bottom: 20px; }
+.tm-mb-30 { margin-bottom: 30px; }
+.tm-img-right { 
+    margin-left: 30px; 
+    margin-right: 0;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+.tm-about-box-1 { padding: 40px 30px 50px 0; }
+.tm-about-box-2 { padding: 50px 40px 30px; }
+.tm-about-header { margin-left: 220px; }
+
+.tm-special-items {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px -10px 0;
+}
+
+.tm-special-item {
+    max-width: 320px;
+    margin: 30px 10px;
+}
+
+.tm-special-item-title { font-size: 1.4rem; }
+.tm-special-item-description { padding: 25px 30px; }
+
+.tm-contact-text-container {
+    padding: 45px 50px;
+    margin-bottom: 20px;    
+}
+
+.tm-contact-form-container {
+    max-width: 260px;
+    padding: 40px 50px;
+    box-sizing: border-box;
+}
+
+.tm-form-group { margin-bottom: 25px; }
+
+.tm-form-control {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+	  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 0;
+    border-bottom: 1px solid white;
+}
+
+.tm-form-control::-webkit-input-placeholder { color: white; }
+.tm-form-control:-ms-input-placeholder { color: white; }
+.tm-form-control::placeholder { color: white; }
+
+.tm-btn-primary {
+    color: #099;
+    background-color: white;
+    border: 0;
+    padding: 12px 40px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+.tm-btn-primary:hover {
+    color: white;
+    background-color: rgb(0, 23, 153);
+}
+
+.tm-align-right {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.tm-mb-30 { margin-bottom: 30px; }
+
+@media (max-width: 1130px) and (min-width: 992px) {
+    .tm-left-inner { max-width: 380px; }
+    .tm-site-name { font-size: 2.6rem; }
+    .tm-site-logo { margin-right: 20px; }
+    .tm-page-link { width: 100%; }
+    .tm-page-link-icon { margin-right: 15px; }
+    .tm-left { width: 45%; }
+    .tm-right { width: 55%; }
+}
+
+@media (max-width: 991px) {
+    .tm-left-inner { position: static; }
+    .tm-left, .tm-right { width: 100%; }
+    .tm-left { margin-bottom: 50px; }
+    .tm-row { display: block; }
+}
+
+@media (max-width: 574px) {
+    .tm-site-nav-ul { display: block; }
+}
+
+@media (max-width: 550px) and (min-width: 501px) {
+    .tm-list-item-img-big {
+        width: 160px;
+        height: 160px;
+    }
+
+    .tm-about-header { margin-left: 180px; }
+}
+
+@media (max-width: 500px) {
+    .tm-about-header { margin-left: 0; }
+    .tm-list-item-2 { flex-direction: column; }
+    .tm-about-box-1 { padding-left: 30px; }
+
+    .tm-list-item-img-big {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .tm-img-right { margin-left: 0; }
+}
+
+@media (max-width: 479px) {
+    .tm-site-name { font-size: 2.6rem; }
+    .tm-site-logo { margin-right: 20px; }
+
+    .tm-list-item {
+        flex-direction: column;
+        margin-top: 40px;     
+    }
+
+    .tm-list-item-img {
+        margin-right: 0;
+        margin-bottom: 15px;        
+    }
+
+    .tm-drinks-nav { height: auto; }
+
+    .tm-drinks-nav > ul {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .tm-drinks-nav > ul > li { margin-bottom: 10px; }
+    .tm-drinks-nav > ul > li > a { display: block; }
+}
       </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-left">
-            <img src="Cartesien.jpeg" alt="Logo">
-            <p style="font-size: 30px;">EIB LE CARTESIEN</p>
+  <div class="navbar">
+    <div class="navbar-left">
+        <img src="Cartesien.jpeg" alt="Logo">
+        <p style="font-size: 30px;">EIB LE CARTESIEN</p>
+    </div>
+    <div class="navbar-right">
+      <a href="index.html" style="font-size: 24px;"><abbr style="text-decoration: none;" title="Homepage of the website.">Home</abbr></a>
+      <a href="Books.html" style="font-size: 24px;"><abbr style="text-decoration: none;" title="Learning books used.">Books</abbr></a>
+      <div class="dropdown" style="font-size: 24px;">Programmes
+        <div class="dropdown-content">
+          <a href="PYP.html" style="font-size: 16px;">Primary Years Program</a>
+          <a href="MYP.html" style="font-size: 16px;">Middle Years Program</a>
+          <a href="DP.html" style="font-size: 16px;">Diploma Program</a>
+          <a href="CP.html" style="font-size: 16px;">Career-related program</a>
         </div>
-        <div class="navbar-right">
-            <a href="Cartesien Library.html" style="font-size: 24px;">Home</a>
-            <a href="Books.html" style="font-size: 24px;">Books</a>
-            <div class="dropdown" style="font-size: 24px;">Programmes
-                <i class="fa fa-caret-down"></i>
-              <div class="dropdown-content">
-                <a href="PYP.html" style="font-size: 16px;">Primary Years Program</a>
-                <a href="MYP.html" style="font-size: 16px;">Middle Years Program</a>
-                <a href="DP.html" style="font-size: 16px;">Diploma Program</a>
-                <a href="CP.html" style="font-size: 16px;">Career-related program</a>
-              </div>
-            </div>
-            <a href="Suggestions.html" style="font-size: 24px;">Suggestions</a>
+      </div>
+      <a href="Feedback.html" style="font-size: 24px;"><abbr style="text-decoration: none;" title="Tell us about the website.">Feedback</abbr></a>
     </div>
-    </div>
-    <nav class="navbar">
-        <div class="logo">Classes</div>
-        <ul class="nav-links">
-          <div class="menu">
-            <li><a href="Grade 1.html" style="text-decoration: none;">Grade<br><pre> 1</pre></a></li>
-            <li><a href="Grade 2.html" style="text-decoration: none;">Grade<br><pre> 2</pre></a></li>
-            <li><a href="Grade 3.html" style="text-decoration: none;">Grade<br><pre> 3</pre></a></li>
-            <li><a href="Grade 4.html" style="text-decoration: none;">Grade<br><pre> 4</pre></a></li>
-            <li><a href="Grade 5.html" style="text-decoration: none;">Grade<br><pre> 5</pre></a></li>
-            <li><a href="Grade 6.html" style="text-decoration: none;">Grade<br><pre> 6</pre></a></li>
-            <li><a href="Grade 7.html" style="text-decoration: none;">Grade<br><pre> 7</pre></a></li>
-            <li><a href="Grade 8.html" style="text-decoration: none;">Grade<br><pre> 8</pre></a></li>
-            <li><a href="Grade 9.html" style="text-decoration: none;">Grade<br><pre> 9</pre></a></li>
-            <li><a href="Grade 10.html" style="text-decoration: none;">Grade<br><pre> 10</pre></a></li>
-            <li><a href="Grade 11.html" style="text-decoration: none;">Grade<br><pre> 11</pre></a></li>
+</div>
+<div class="tm-container">
+    <div class="tm-row">
+      <div class="tm-left">
+        <div class="tm-left-inner">
+          <div class="tm-site-header">
+            <i class="fas fa-coffee fa-3x tm-site-logo"></i>
+            <h1 class="tm-site-name" style="border-radius: 10px;">Classes</h1>
           </div>
-        </ul>
-      </nav>
+          <nav class="tm-site-nav">
+            <ul class="tm-site-nav-ul">
+              <li class="tm-page-nav-item">
+                <a href="Grade 1.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 1</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 2.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 2</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 3.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 3</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 4.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 4</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 5.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 5</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 6.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 6</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 7.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 7</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 8.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 8</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 9.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 9</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 10.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 10</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="Grade 11.html" class="tm-page-link active">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>Grade 11</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>        
+      </div>
+      <div class="tm-right">
+        <main class="tm-main">
+          <div class="wrapper">
+            <div class="search-input">
+                <a href="" target="blank" hidden></a>
+                   <input type="text" id="search-bar" placeholder="Type to search...">
+                   <div id="autocom" class="autocom-box"></div>
+                   <div class="icon"><i class="fas fa-search"></i></div>
+            </div>
+        </div>
+        <script>
+          let suggestions = [
+              { name: "Grade 1 English", link: "Grade 1 English.html" },
+              { name: "Grade 1 Geography", link: "Grade 1 Geography.html" },
+              { name: "Grade 1 History", link: "Grade 1 History.html" },
+              { name: "Grade 1 ICT", link: "Grade 1 ICT.html" },
+              { name: "Grade 1 Mathematics", link: "Grade 1 English.html" },
+              { name: "Grade 1 POI", link: "Grade 1 POI.html" },
+              { name: "Grade 1 PSPE", link: "Grade 1 PSPE.html" },
+              { name: "Grade 1 Sciences", link: "Grade 1 Sciences.html" },
+              { name: "Grade 1 Social Studies", link: "Grade 1 Social Studies.html" },
+              { name: "Grade 1 Visual Arts", link: "Grade 1 Viisual Arts.html" },
+
+              { name: "Grade 2 English ", link: "Grade 2 English.html" },
+              { name: "Grade 2 Geography", link: "Grade 2 Geography.html" },
+              { name: "Grade 2 History", link: "Grade 2 History.html" },
+              { name: "Grade 2 ICT", link: "Grade 2 ICT.html"},
+              { name: "Grade 2 Mathematics", link: "Grade 2 Mathematics.html"},
+              { name: "Grade 2 POI", link: "Grade 2 POI.html"},
+              { name: "Grade 2 PSPE", link: "Grade 2 PSPE.html"},
+              { name: "Grade 2 Sciences", link: "Grade 2 Sciences.html"},
+              { name: "Grade 2 Social Studies", link: "Grade 2 Social Studies.html"},
+              { name: "Grade 2 Visual Arts", link: "Grade 2 Visual Arts.html"},
+
+              { name: "Grade 3 English ", link: "Grade 3 English.html" },
+              { name: "Grade 3 Geography", link: "Grade 3 Geography.html" },
+              { name: "Grade 3 History", link: "Grade 3 History.html" },
+              { name: "Grade 3 ICT", link: "Grade 3 ICT.html"},
+              { name: "Grade 3 Mathematics", link: "Grade 3 Mathematics.html"},
+              { name: "Grade 3 POI", link: "Grade 3 POI.html"},
+              { name: "Grade 3 PSPE", link: "Grade 3 PSPE.html"},
+              { name: "Grade 3 Sciences", link: "Grade 3 Sciences.html"},
+              { name: "Grade 3 Social Studies", link: "Grade 3 Social Studies.html"},
+              { name: "Grade 3 Visual Arts", link: "Grade 3 Visual Arts.html"},
+
+              { name: "Grade 4 English ", link: "Grade 4 English.html" },
+              { name: "Grade 4 Geography", link: "Grade 4 Geography.html" },
+              { name: "Grade 4 History", link: "Grade 4 History.html" },
+              { name: "Grade 4 ICT", link: "Grade 4 ICT.html"},
+              { name: "Grade 4 Mathematics", link: "Grade 4 Mathematics.html"},
+              { name: "Grade 4 POI", link: "Grade 4 POI.html"},
+              { name: "Grade 4 PSPE", link: "Grade 4 PSPE.html"},
+              { name: "Grade 4 Sciences", link: "Grade 4 Sciences.html"},
+              { name: "Grade 4 Social Studies", link: "Grade 4 Social Studies.html"},
+              { name: "Grade 4 Visual Arts", link: "Grade 4 Visual Arts.html"},
+
+              { name: "Grade 5 English ", link: "Grade 5 English.html" },
+              { name: "Grade 5 Geography", link: "Grade 5 Geography.html" },
+              { name: "Grade 5 History", link: "Grade 5 History.html" },
+              { name: "Grade 5 ICT", link: "Grade 5 ICT.html"},
+              { name: "Grade 5 Mathematics", link: "Grade 5 Mathematics.html"},
+              { name: "Grade 5 POI", link: "Grade 5 POI.html"},
+              { name: "Grade 5 PSPE", link: "Grade 5 PSPE.html"},
+              { name: "Grade 5 Sciences", link: "Grade 5 Sciences.html"},
+              { name: "Grade 5 Social Studies", link: "Grade 5 Social Studies.html"},
+              { name: "Grade 5 Visual Arts", link: "Grade 5 Visual Arts.html"},
+
+              { name: "Grade 6 English ", link: "Grade 6 English.html" },
+              { name: "Grade 6 Geography", link: "Grade 6 Geography.html" },
+              { name: "Grade 6 History", link: "Grade 6 History.html" },
+              { name: "Grade 6 ICT", link: "Grade 6 ICT.html"},
+              { name: "Grade 6 Mathematics", link: "Grade 6 Mathematics.html"},
+              { name: "Grade 6 POI", link: "Grade 6 POI.html"},
+              { name: "Grade 6 PSPE", link: "Grade 6 PSPE.html"},
+              { name: "Grade 6 Sciences", link: "Grade 6 Sciences.html"},
+              { name: "Grade 6 Social Studies", link: "Grade 6 Social Studies.html"},
+              { name: "Grade 6 Visual Arts", link: "Grade 6 Visual Arts.html"},
+
+              { name: "Grade 7 English", link: "Grade 7 English.html"},
+              { name: "Grade 7 French", link: "Grade 7 French.html"},
+              { name: "Grade 7 ICT", link: "Grade 7 ICT.html"},
+              { name: "Grade 7 Life Sciences", link: "Grade 7 Life Sciences.html"},
+              { name: "Grade 7 Mathematics", link: "Grade 7 Mathematics.html"},
+              { name: "Grade 7 Physical and Earth Sciences", link: "Grade 7 Physical and Earth Sciences.html"},
+              { name: "Grade 7 Social Studies", link: "Grade 7 Social Studies.html"},
+              { name: "Grade 7 Spanish", link: "Grade 7 Spanish.html"},
+
+              { name: "Grade 8 English", link: "Grade 8 English.html"},
+              { name: "Grade 8 French", link: "Grade 8 French.html"},
+              { name: "Grade 8 ICT", link: "Grade 8 ICT.html"},
+              { name: "Grade 8 Life Sciences", link: "Grade 8 Life Sciences.html"},
+              { name: "Grade 8 Mathematics", link: "Grade 8 Mathematics.html"},
+              { name: "Grade 8 Physical and Earth Sciences", link: "Grade 8 Physical and Earth Sciences.html"},
+              { name: "Grade 8 Social Studies", link: "Grade 8 Social Studies.html"},
+              { name: "Grade 8 Spanish", link: "Grade 8 Spanish.html"},
+
+              { name: "Grade 9 CAS", link: "Grade 9 CAS.html"},
+              { name: "Grade 9 English", link: "Grade 9 English.html"},
+              { name: "Grade 9 Extended Essay", link: "Grade 9 Extended Essay.html"},
+              { name: "Grade 9 French", link: "Grade 9 French.html"},
+              { name: "Grade 9 Geography", link: "Grade 9 Geography.html"},
+              { name: "Grade 9 ICT", link: "Grade 9 ICT.html"},
+              { name: "Grade 9 Life Sciences", link: "Grade 9 Life Sciences.html"},
+              { name: "Grade 9 Mathematics", link: "Grade 9 Mathematics.html"},
+              { name: "Grade 9 Physical and Earth Sciences", link: "Grade 9 Physical and Earth Sciences.html"},
+              { name: "Grade 9 Social Studies", link: "Grade 9 Social Studies.html"},
+              { name: "Grade 9 Spanish", link: "Grade 9 Spanish.html"},
+              { name: "Grade 9 TOK", link: "Grade 9 TOK.html"},
+
+              { name: "Grade 10 Biology", link: "Grade 10 Biology.html"},
+              { name: "Grade 10 Business", link: "Grade 10 Business.html"},
+              { name: "Grade 10 CAS", link: "Grade 10 CAS.html"},
+              { name: "Grade 10 Chemistry", link: "Grade 10 Chemistry.html"},
+              { name: "Grade 10 Economics", link: "Grade 10 Economics.html"},
+              { name: "Grade 10 English", link: "Grade 10 English.html"},
+              { name: "Grade 10 Extended Essay", link: "Grade 10 Extended Essay.html"},
+              { name: "Grade 10 French", link: "Grade 10 French.html"},
+              { name: "Grade 10 Global Politics", link: "Grade 10 Global Politics.html"},
+              { name: "Grade 10 History", link: "Grade 10 History.html"},
+              { name: "Grade 10 Mathematics", link: "Grade 10 Mathematics.html"},
+              { name: "Grade 10 Physics", link: "Grade 10 Physics.html"},
+              { name: "Grade 10 Spanish", link: "Grade 10 Spanish.html"},
+              { name: "Grade 10 TOK", link: "Grade 10 TOK.html"},
+
+              { name: "Grade 11 Biology", link: "Grade 11 Biology.html"},
+              { name: "Grade 11 Business", link: "Grade 11 Business.html"},
+              { name: "Grade 11 CAS", link: "Grade 11 CAS.html"},
+              { name: "Grade 11 Chemistry", link: "Grade 11 Chemistry.html"},
+              { name: "Grade 11 Economics", link: "Grade 11 Economics.html"},
+              { name: "Grade 11 English", link: "Grade 11 English.html"},
+              { name: "Grade 11 Extended Essay", link: "Grade 11 Extended Essay.html"},
+              { name: "Grade 11 French", link: "Grade 11 French.html"},
+              { name: "Grade 11 Global Politics", link: "Grade 11 Global Politics.html"},
+              { name: "Grade 11 History", link: "Grade 11 History.html"},
+              { name: "Grade 11 Mathematics", link: "Grade 11 Mathematics.html"},
+              { name: "Grade 11 Physics", link: "Grade 11 Physics.html"},
+              { name: "Grade 11 Spanish", link: "Grade 11 Spanish.html"},
+              { name: "Grade 11 TOK", link: "Grade 11 TOK.html"},
+          ];
+  
+          document.getElementById('search-bar').addEventListener('input', function() {
+              let input = this.value;
+              let dropdown = document.getElementById('autocom');
+              dropdown.innerHTML = '';
+              if (input) {
+                  let filteredSuggestions = suggestions.filter(suggestion => 
+                      suggestion.name.toLowerCase().includes(input.toLowerCase())
+                  );
+                  filteredSuggestions.forEach(suggestion => {
+                      let link = document.createElement('a');
+                      link.href = suggestion.link;
+                      link.textContent = suggestion.name;
+                      dropdown.appendChild(link);
+                  });
+                  dropdown.classList.add('show');
+              } else {
+                  dropdown.classList.remove('show');
+              }
+          });
+  
+          document.addEventListener('click', function(event) {
+              let dropdown = document.getElementById('autocom');
+              if (!event.target.matches('#search-bar')) {
+                  dropdown.classList.remove('show');
+              }
+          });
+      </script>
+          <div id="grade1" class="tm-page-content">
+                <center><h1 class="tm-site-name" style="color: white;">Books</h1></center> 
+            </div>
+          </div>
+        </main>
+      </div>    
+    </div>
+  </div><br><br><br><br><br><br><br><br>
 </body>
 </html>
